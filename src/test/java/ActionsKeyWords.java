@@ -8,15 +8,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ActionsKeyWords extends BaseTest{
-    public  WebDriver driver;
 
 
-    public WebDriver initDriver() throws IOException {
-         return browserInit.initialDriver();
+    public ActionsKeyWords() throws IOException {
     }
+    // public  WebDriver driver;
 
-    public void navigateToUrl(){
+
+
+/*    public WebDriver initDriver() throws IOException {
+         return browserInit.initialDriver();
+    }*/
+
+    public void navigateToUrl() throws IOException {
         //get google URL
+        //driver=initDriver();
         driver.get(browserInit.getDataPropertiesProviders().getUrl());
         // maximize window
         driver.manage().window().maximize();
@@ -31,6 +37,7 @@ public class ActionsKeyWords extends BaseTest{
     public void getSearchTestData() throws IOException {
         List<String> searchData = ExcelUtils.getOneRowData(browserInit.getDataPropertiesProviders().excelFilePath(),"Sheet1",
                 Arrays.asList("TestCase","testData"),Arrays.asList("verify search data"));
+
         googleSearch.getSearchField().sendKeys(searchData.get(0), Keys.ENTER);
     }
 

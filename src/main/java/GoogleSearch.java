@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GoogleSearch {
 
-    public WebDriver driver ;
+    private WebDriver driver ;
 
     public  GoogleSearch(WebDriver driver){
         this.driver = driver;

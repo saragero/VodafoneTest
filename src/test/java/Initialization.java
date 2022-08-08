@@ -19,6 +19,30 @@ public class Initialization extends DataPropertiesProviders {
     private WebDriver driver;
     private DataPropertiesProviders dataPropertiesProviders;
 
+    private static Initialization instance;
+
+    static {
+        try {
+            instance = new Initialization();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //make the constructor private so that this class cannot be
+    //instantiated
+    private Initialization() throws IOException {
+        initialDriver();
+    }
+
+    public static Initialization getInstance(){
+        return instance;
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public DataPropertiesProviders getDataPropertiesProviders() {
         return dataPropertiesProviders;
     }

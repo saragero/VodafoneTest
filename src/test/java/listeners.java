@@ -7,10 +7,15 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utilities.ExtentReporterNG;
 
+import java.io.IOException;
+
 public class listeners extends BaseTest implements ITestListener {
     WebDriver driver = null;
     ExtentTest test;
     ExtentReports extent = ExtentReporterNG.getReportObject();
+
+    public listeners() throws IOException {
+    }
 
     @Override
     public void onTestStart(ITestResult result) {

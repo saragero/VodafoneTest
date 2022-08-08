@@ -12,25 +12,29 @@ import static org.testng.Assert.assertEquals;
 
 public class GoogleSearchTest extends BaseTest{
 
+    public GoogleSearchTest() throws IOException {
+
+    }
+
     @Test
     public void verifyThirdPageLinksCount() throws IOException {
         //initiate variable for count validation
         int thirdPageCount, secondPageLinkCount;
         //get search test data from Excel file
-        getSearchTestData();
+        keyWords.getSearchTestData();
         //scroll down till the navigator
-        scrollDown();
+        keyWords.scrollDown();
         //navigate to the next button to second page
-        getNextBtnClicked();
+        keyWords.getNextBtnClicked();
         //get the links count for second page
-        secondPageLinkCount = getPageCount();
+        secondPageLinkCount = keyWords.getPageCount();
         //scroll down till the navigator
-        scrollDown();
+        keyWords.scrollDown();
         //navigate to the next button to third page
-        getNextBtnClicked();
+        keyWords.getNextBtnClicked();
         //Thread.sleep(300);
         //get the links count for Third page
-        thirdPageCount = getPageCount();
+        thirdPageCount = keyWords.getPageCount();
         //validate the second page count versus the third count
         assertEquals(thirdPageCount,secondPageLinkCount);
 
@@ -39,11 +43,11 @@ public class GoogleSearchTest extends BaseTest{
 
     @AfterTest
     public void tearDown(){
-        closeBrowser();
+        keyWords.closeBrowser();
 }
 
 // start from here trying to do the keyword driven framework
-    public void scrollDown(){
+    /*public void scrollDown(){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,4000)");
 
@@ -65,6 +69,6 @@ public class GoogleSearchTest extends BaseTest{
 
     public void closeBrowser(){
         driver.close();
-    }
+    }*/
 }
 
