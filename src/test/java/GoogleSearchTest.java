@@ -1,20 +1,10 @@
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-import utilities.ExcelUtils;
-
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class GoogleSearchTest extends BaseTest{
-
-    public GoogleSearchTest() throws IOException {
-
-    }
+public class GoogleSearchTest extends BaseTest {
 
     @Test
     public void verifyThirdPageLinksCount() throws IOException {
@@ -36,39 +26,12 @@ public class GoogleSearchTest extends BaseTest{
         //get the links count for Third page
         thirdPageCount = keyWords.getPageCount();
         //validate the second page count versus the third count
-        assertEquals(thirdPageCount,secondPageLinkCount);
-
+        assertEquals(thirdPageCount, secondPageLinkCount);
     }
-
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         keyWords.closeBrowser();
-}
-
-// start from here trying to do the keyword driven framework
-    /*public void scrollDown(){
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("window.scrollBy(0,4000)");
-
     }
-
-    public void getSearchTestData() throws IOException {
-        List<String> searchData = ExcelUtils.getOneRowData(browserInit.getDataPropertiesProviders().excelFilePath(),"Sheet1",
-                Arrays.asList("TestCase","testData"),Arrays.asList("verify search data"));
-        googleSearch.getSearchField().sendKeys(searchData.get(0), Keys.ENTER);
-    }
-
-    public int getPageCount(){
-        return googleSearch.getSearchResultsLinks().size();
-    }
-
-    public void getNextBtnClicked(){
-        googleSearch.getNextBtn().click();
-    }
-
-    public void closeBrowser(){
-        driver.close();
-    }*/
 }
 

@@ -1,6 +1,5 @@
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import utilities.ExcelUtils;
 
 import java.io.IOException;
@@ -9,20 +8,8 @@ import java.util.List;
 
 public class ActionsKeyWords extends BaseTest{
 
-
-    public ActionsKeyWords() throws IOException {
-    }
-    // public  WebDriver driver;
-
-
-
-/*    public WebDriver initDriver() throws IOException {
-         return browserInit.initialDriver();
-    }*/
-
-    public void navigateToUrl() throws IOException {
+    public void navigateToUrl() {
         //get google URL
-        //driver=initDriver();
         driver.get(browserInit.getDataPropertiesProviders().getUrl());
         // maximize window
         driver.manage().window().maximize();
